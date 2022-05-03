@@ -52,7 +52,7 @@ int main() {
 	arbre.traiteNoeudPost(arbre.getRacine());
 
 	//Supprimer
-	arbre.supNoeud(arbre.getRacine(), 2);
+	//arbre.supNoeud(arbre.getRacine(), 2);
 
 	//Rechercher
 	int foundN = 10;

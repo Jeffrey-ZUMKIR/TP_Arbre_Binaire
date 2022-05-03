@@ -190,13 +190,17 @@ int Arbre::balance()
 		if (getNbNoeud(racine->fd) > getNbNoeud(racine->fg)) {
 			noeud* temp = racine;
 			racine = racine->fd;
-			temp->fd = nullptr;
+			noeud* tempF = racine->fg;
+			temp->fd = racine->fg;
+			racine->fg = nullptr;
 			insertNoeud(temp, racine);
 		}
 		else if (getNbNoeud(racine->fd) < getNbNoeud(racine->fg)) {
 			noeud* temp = racine;
 			racine = racine->fg;
-			temp->fg = nullptr;
+			noeud* tempF = racine->fd;
+			temp->fg = racine->fd;
+			racine->fd = nullptr;
 			insertNoeud(temp, racine);
 		}
 	}
