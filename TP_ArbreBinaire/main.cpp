@@ -54,6 +54,7 @@ int main() {
 	//Supprimer
 	arbre.supNoeud(arbre.getRacine(), 2);
 
+	//Rechercher
 	int foundN = 10;
 	noeud* n7 = arbre.rechercheNoeud(arbre.getRacine(), foundN);
 	if (n7 != nullptr) {
@@ -63,12 +64,15 @@ int main() {
 		cout << "Le noeud avec pour valeur: " << foundN << " n'est pas present dans l'arbre." << endl;
 	}
 
+	//Hauteur
 	cout << "Hauteur de l'arbre" << endl;
 	cout << arbre.getHeight(arbre.getRacine()) - 1 << endl;
 
+	//Nombre de noeud
 	cout << "Nombre de noeud" << endl;
 	cout << arbre.getNbNoeud(arbre.getRacine()) - 1 << endl;
 
+	//Equilibré l'arbre
 	arbre.balance();
 
 

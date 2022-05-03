@@ -3,15 +3,18 @@
 
 using namespace std;
 
+//Constructeur
 Arbre::Arbre()
 {
 	racine = nullptr;
 }
 
+//Destructeur
 Arbre::~Arbre()
 {
 }
 
+//Traitement préfixé
 int Arbre::traiteNoeudPre(noeud* n)
 {
 	if (n != nullptr) {
@@ -23,6 +26,7 @@ int Arbre::traiteNoeudPre(noeud* n)
 	return 0;
 }
 
+//Traitement postfixé
 int Arbre::traiteNoeudPost(noeud* n)
 {
 	if (n != nullptr) {
@@ -34,11 +38,13 @@ int Arbre::traiteNoeudPost(noeud* n)
 	return 0;
 }
 
+//Obtenir la racine
 noeud* Arbre::getRacine()
 {
 	return racine;
 }
 
+//Insérer un noeud
 int Arbre::insertNoeud(noeud* n, noeud* p_racine)
 {
 	if (p_racine == nullptr) {
@@ -68,6 +74,7 @@ int Arbre::insertNoeud(noeud* n, noeud* p_racine)
 	return 0;
 }
 
+//Supprimer un noeud
 noeud* Arbre::supNoeud(noeud* n, int n_val)
 {
 	if (n == nullptr) {
@@ -112,6 +119,7 @@ noeud* Arbre::supNoeud(noeud* n, int n_val)
 	return n;
 }
 
+//Obtenir le successeur
 noeud* Arbre::Successeur(noeud* n)
 {
 	noeud* courant = n;
@@ -121,6 +129,7 @@ noeud* Arbre::Successeur(noeud* n)
 	return courant;
 }
 
+//Rechercher un noeud
 noeud* Arbre::rechercheNoeud(noeud* n, int n_val)
 {
 	if (n == nullptr) {
@@ -142,6 +151,7 @@ noeud* Arbre::rechercheNoeud(noeud* n, int n_val)
 	return n_temp;
 }
 
+//Check si l'arbre est équilibré
 bool Arbre::isBalance()
 {
 	if (racine == nullptr) {
@@ -157,6 +167,7 @@ bool Arbre::isBalance()
 	return false;
 }
 
+//Obtenir la hauteur de l'arbre
 int Arbre::getHeight(noeud* n)
 {
 	if (!n) return 0;
@@ -164,6 +175,7 @@ int Arbre::getHeight(noeud* n)
 	return 1 + max(getHeight(n->fg), getHeight(n->fd));
 }
 
+//Obtenir le nombre de noeud
 int Arbre::getNbNoeud(noeud* n)
 {
 	if (!n) return 0;
@@ -171,6 +183,7 @@ int Arbre::getNbNoeud(noeud* n)
 	return 1 + getNbNoeud(n->fg) + getNbNoeud(n->fd);
 }
 
+//Equilibré l'arbre
 int Arbre::balance()
 {
 	while (isBalance() == false) {
